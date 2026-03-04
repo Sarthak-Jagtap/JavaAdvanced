@@ -1,0 +1,48 @@
+package HackerRankM1;
+
+/**
+ * Given an array of integers, calculate the sum of all factors of each number
+ * and return an array containing the corresponding sums.
+ */
+
+public class Ques02 {
+
+	private int factSum(int num) {
+		if (num == 1)
+			return 1;
+
+		int sum = num + 1;
+		for (int i = 2; i * i <= num; i++) {
+			if (num % i == 0) {
+				sum += i;
+				if (i * i != num)
+					sum += num / i;
+			}
+		}
+
+		return sum;
+	}
+
+	public int[] factSumArr(int arr[]) {
+		int n = arr.length;
+		
+		
+		int result[] = new int[n];
+		for (int i = 0; i < n; i++) {
+			result[i] = factSum(arr[i]);
+		}
+		return result;
+	}
+
+	public static void main(String[] args) {
+		int arr[] = { 16 };
+		Ques02 obj = new Ques02();
+		
+		int result[] = obj.factSumArr(arr);
+		
+		for (int i = 0; i < result.length; i++) {
+			
+			System.out.println(result[i]);
+		}
+	}
+}

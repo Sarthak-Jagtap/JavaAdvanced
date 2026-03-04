@@ -1,0 +1,67 @@
+Database: company_db
+Tables:
+
+Employee
+
+emp_id INT PRIMARY KEY AUTO_INCREMENT,
+name VARCHAR(50),
+email VARCHAR(100),
+salary DOUBLE,
+dept_id INT,
+joining_date DATE
+
+
+Department
+
+dept_id INT PRIMARY KEY AUTO_INCREMENT,
+dept_name VARCHAR(50),
+location VARCHAR(50)
+
+Exercise 1
+
+Create a Java program to:
+
+Insert a new employee using PreparedStatement
+
+Display success message
+
+Handle SQL exceptions properly
+
+Exercise 2
+
+Fetch all employees from database and display:
+
+ID | Name | Salary | Department ID
+
+Exercise 3
+
+Update salary of employee by emp_id.
+
+Condition:
+
+Salary increase by 10% if department = IT.
+
+Exercise 4
+
+Delete employee whose salary is less than 20,000.
+
+Exercise 5 – Join Query
+
+Display employee details with department name using INNER JOIN.
+
+Expected Output:
+
+Name | Salary | Department Name | Location
+
+Exercise 6 – Search Functionality
+
+Create method:
+
+searchEmployeeByName(String name)
+
+
+Use LIKE query with PreparedStatement.
+
+Exercise 7 – Highest Paid Employee
+
+Find employee with maximum salary.

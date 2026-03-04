@@ -1,0 +1,37 @@
+package com.example;
+
+import java.time.LocalDate;
+import java.util.List;
+
+public class Main {
+
+	public static void main(String[] args) {
+		Employee e1 = new Employee();
+		e1.setName("Ram");
+		e1.setSalary(25000.00);
+		e1.setDept("Data Admin");
+		e1.setDateOfJoining(LocalDate.now());
+		
+		EmployeeDao dao = new EmployeeDao();
+		
+		dao.addEmployee(e1);
+		
+		dao.getById(e1.getId());
+		
+		Employee e1Return = dao.getById(e1.getId());
+		System.out.println(e1Return);
+		
+		List<Employee> list = dao.getAll();
+		for(Employee e : list){
+			System.out.println(e);
+		}	
+		
+		
+		Employee e2 = new Employee();
+		e1.setName("Krishan");
+		e1.setSalary(10000001.0);
+		e1.setDept("Founder");
+		e1.setDateOfJoining(LocalDate.now());
+	}
+
+}

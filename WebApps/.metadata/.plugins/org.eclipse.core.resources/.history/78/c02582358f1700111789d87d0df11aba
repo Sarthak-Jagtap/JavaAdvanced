@@ -1,0 +1,13 @@
+package com.example;
+
+public class ProductDao {
+	public void storeProduct(Product p) {
+		
+	}
+	
+	public void deleteProductbyId(int id) {
+		
+	}
+	
+	
+}

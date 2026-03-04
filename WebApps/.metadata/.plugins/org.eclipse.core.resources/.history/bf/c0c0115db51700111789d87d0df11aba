@@ -1,0 +1,17 @@
+package com.example;
+
+import org.hibernate.Session;
+import org.hibernate.Transaction;
+
+public class StudentDao {
+
+	public void insertStudent(Student stud) {
+		try(Session session = HBUtil.getSessionFactory().openSession()){
+			Transaction tr = session.beginTransaction();
+			
+			session.persist(stud);
+			
+			tr.commit();
+		}
+	}
+}

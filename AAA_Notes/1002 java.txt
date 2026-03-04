@@ -1,0 +1,9 @@
+Immutable Class Implementation: Write a program to create a custom immutable class in Java. This requires using a final class, final and private member variables, and no setter methods.
+
+Abstract Class vs. Interface: Implement a scenario (e.g., a "Vehicle" system) where you must choose between an abstract class for shared state and an interface for shared behavior.
+
+Method Overriding & Polymorphism: A classic task is to create a parent class Shape with a method draw(), then override it in child classes like Circle or Rectangle to demonstrate runtime polymorphism.
+
+Exception Handling in OOP: Design a custom exception (e.g., InsufficientFundsException) and integrate it into a Bank class to demonstrate robust error management within an object-oriented structure.
+
+Encapsulation with Data Hiding: Implement a class with private fields and public getters/setters, often including validation logic within the setters to maintain data integrity. 

@@ -1,0 +1,48 @@
+package EmployeeJDBC;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.sql.Date;
+
+public class EmployeeDAO {
+
+	public void insertEmp(Employee emp) {
+		String query = "INSERT INTO EMPLOYEE (name, dept, salary, joiningDate) VALUES (?,?,?,?)";
+		
+		try(Connection con = new DBConnection().createDBConnection();
+			PreparedStatement ps = con.prepareStatement(query)){
+			
+			ps.setString(1, emp.getName());
+			ps.setString(2, emp.getDept());
+			ps.setDouble(3, emp.getSalary());
+			ps.setDate(4, Date.valueOf(emp.getJoiningDate()));
+			
+			int result = ps.executeUpdate();
+			System.out.println(result + "Employee record inserted");
+		}catch(SQLException s) {
+			s.printStackTrace();
+		}
+	}
+	
+	public void updateEmp(Employee emp) {
+
+		String query = "UPDATE employees SET name=?, dept=?, salary=?, joining_dt=? WHERE emp_id=?";
+
+		try (Connection con = new DBConnection().createDBConnection();
+			 PreparedStatement ps = con.prepareStatement(query)) {
+
+			ps.setString(1, emp.getName());
+			ps.setString(2, emp.getDept());
+			ps.setDouble(3, emp.getSalary());
+			ps.setDate(4, Date.valueOf(emp.getJoiningDate()));
+			ps.setInt(5, emp.getEmpId());
+
+			ps.executeUpdate();
+			System.out.println("Employee updated successfully");
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+}

@@ -1,0 +1,25 @@
+4️⃣ Employee Filtering System (Encapsulation + Stream)
+
+Create a class:
+
+class Employee {
+    private int id;
+    private String name;
+    private double salary;
+    private String department;
+
+    // Constructor + Getters + Setters
+}
+
+
+Given a List<Employee>:
+
+Tasks:
+
+Find employees with salary > 50,000.
+
+Group employees by department.
+
+Find highest paid employee in each department.
+
+Calculate average salary per department.

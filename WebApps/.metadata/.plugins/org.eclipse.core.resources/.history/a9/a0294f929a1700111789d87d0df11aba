@@ -1,0 +1,40 @@
+package com.example;
+
+import java.util.List;
+
+import org.hibernate.Session;
+import org.hibernate.Transaction;
+import org.hibernate.query.Query;
+
+public class EmployeeDao {
+
+	
+	public Employee getById(int id) {
+		try(Session session = HBUtil.getSessionFactory().openSession()){
+			
+			Query<Employee> qry = session.createQuery("from Employee e where id=: id",Employee.class);
+			qry.setParameter("id", id);
+			
+			return qry.uniqueResult();
+			
+			// return qry.getSingleResult();
+		}
+	}
+	
+	public List<Employee> getAll(){
+		try(Session session = HBUtil.getSessionFactory().openSession()){			
+			Query<Employee> qry = session.createNamedQuery("from Employee", Employee.class);
+			return qry.getResultList();
+		}
+	}
+	
+	public void addEmployee(Employee emp) {
+		try(Session session = HBUtil.getSessionFactory().openSession()){
+			Transaction tr = session.beginTransaction();
+			
+			session.persist(emp);
+			
+			tr.commit();
+		}
+	}
+}

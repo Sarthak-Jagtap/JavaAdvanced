@@ -1,0 +1,14 @@
+package com.example.util;
+
+import com.sun.jdi.connect.spi.Connection;
+
+public class DBConnection {
+	
+	private SQLCreds obj = new SQLCreds("student_db");
+	
+	public Connection createDBConnection() {
+		Connection con = null;
+		
+		return con;
+	}
+}

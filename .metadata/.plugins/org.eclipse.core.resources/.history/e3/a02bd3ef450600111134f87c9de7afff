@@ -1,0 +1,62 @@
+package StreamAPIQues;
+
+import java.util.Comparator;
+import java.util.List;
+import java.util.stream.Collectors;
+
+/**
+ * 1. Problem Statement Task:
+ * 
+ * 1. Find all transactions in the year 2011 and sort them by value (small to
+ * high).
+ * 
+ * 2. Print all transactions’ values from the traders living in Delhi.
+ * 
+ * 3. What’s the highest value of all the transactions?
+ * 
+ * 4. Find the transaction with the smallest value.
+ * 
+ */
+
+class Transaction {
+	String id;
+	int year;
+	double amount;
+	String location;
+
+	public Transaction(String id, int year, double amount, String location) {
+		super();
+		this.id = id;
+		this.year = year;
+		this.amount = amount;
+		this.location = location;
+	}
+	
+	public int getYear() {
+		return year;
+	}
+	
+	public double getAmount() {
+		return amount;
+	}
+
+	Comparator<Transaction> campareWithAmount = (obj1, obj2) -> {
+		return Double.compare(obj1.amount, obj2.amount);
+	};
+	
+	List<Transaction> groupByYear(List<Transaction> list, int year){
+		return list.stream()
+				.filter(e -> e.getYear() == year)
+				.sorted(Comparator.comparingDouble(Transaction::getAmount))
+				.collect(Collectors.toList());
+	}
+	
+	List<Transaction> filterWithCity(List<Transaction>, String city){
+		
+	}
+}
+
+
+public class Ques01 {
+
+}

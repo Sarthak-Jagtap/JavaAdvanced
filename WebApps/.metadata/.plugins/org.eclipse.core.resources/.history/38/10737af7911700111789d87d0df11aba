@@ -1,0 +1,24 @@
+package com.example;
+
+import java.time.LocalDate;
+
+import org.hibernate.Session;
+import org.hibernate.Transaction;
+
+public class Main {
+	public static void main(String[] args) {
+
+		Product p1 = new Product("tv", 32000, LocalDate.now());
+		Product p2 = new Product("fridge", 32000, LocalDate.now());
+
+		try (Session session = HBUtil.getSessionFactory().openSession()) {
+			Transaction tr = session.beginTransaction();
+			session.persist(p1);
+			session.persist(p2);
+
+			tr.commit();
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+	}
+}

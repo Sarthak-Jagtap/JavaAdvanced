@@ -1,0 +1,394 @@
+package FileHandling;
+
+import java.io.*;
+
+// Read a text from file and display it.
+public class Ques01 {
+
+	public static void main(String[] args) {
+		String path = "src/FileHandling/input01.txt";
+		try (BufferedReader br = new BufferedReader(new FileReader(path));) {
+
+			String line;
+			while ((line = br.readLine()) != null) {
+				System.out.println(line);
+			}
+
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+}
+
+
+
+package FileHandling;
+
+import java.io.*;
+
+// Count number of lines, words and characters in the File.
+public class Ques02 {
+
+	public static void main(String[] args) {
+		String path = "src/FileHandling/input01.txt";
+		
+		int lines = 0;
+		int words = 0;
+		int chars = 0;
+		
+		
+		try (BufferedReader br = new BufferedReader(new FileReader(path));) {
+			
+			
+			
+			String line;
+			while ((line = br.readLine()) != null) {
+				lines++;
+				chars += line.length();
+				
+				String[] data = line.split(" ");
+				words += data.length;
+			}
+			
+
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		System.out.println("Number of lines = "+ lines);
+		System.out.println("Number of Words = "+ words);
+		System.out.println("Number of Chars = "+ chars);
+	}
+}
+
+
+package FileHandling;
+
+import java.io.*;
+import java.util.Scanner;
+
+// Read a file and Display the line containing a given word
+public class Ques03 {
+
+	public static void main(String[] args) {
+		String path = "src/FileHandling/input01.txt";
+
+		try (BufferedReader br = new BufferedReader(new FileReader(path)); Scanner sc = new Scanner(System.in);) {
+
+			String line;
+			
+			System.out.print("Enter a word : ");
+			String word = sc.next();
+
+			while ((line = br.readLine()) != null) {
+				if (line.contains(word)) {
+					System.out.println(line);
+				}
+			}
+
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+}
+
+
+
+package FileHandling;
+
+import java.io.*;
+import java.util.Scanner;
+
+// Read numbers from a file and find the sum and average.
+public class Ques04 {
+
+	public static void main(String[] args) {
+		String path = "src/FileHandling/input02.txt";
+
+		int count = 0;
+		int sum = 0;
+		
+		try (BufferedReader br = new BufferedReader(new FileReader(path));) {
+
+			String line;
+			
+
+			while ((line = br.readLine()) != null) {
+				String[] nums = line.split(" ");
+				
+				for(int i = 0; i<nums.length; i++) {
+					if(nums[i] != "") {
+						try {
+							sum += Integer.parseInt(nums[i]);
+						}catch(NumberFormatException fm) {
+							i++;
+						}
+						count++;
+					}
+				}
+			}
+
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		System.out.println("Sum = "+sum);
+		System.out.println("Average = "+(sum/count));
+	}
+}
+
+
+package FileHandling;
+
+import java.io.*;
+import java.util.Scanner;
+
+// Read numbers from a file and find the sum and average.
+public class Ques05 {
+
+	public static void main(String[] args) {
+		String path = "src/FileHandling/input01.txt";
+
+		try (BufferedReader br = new BufferedReader(new FileReader(path));) {
+
+			StringBuffer content = new StringBuffer();
+			String line;
+
+			while ((line = br.readLine()) != null) {				
+				content.append("\n"+line);
+			}
+			
+			content.reverse();
+			System.out.println(content);
+
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		
+	}
+}
+
+
+
+package FileHandling;
+
+import java.io.*;
+import java.util.Scanner;
+
+// Write a user input in the file.
+public class Ques06 {
+
+	public static void main(String[] args) {
+		String path = "src/FileHandling/output01.txt";
+		try (BufferedWriter wr = new BufferedWriter(new FileWriter(path));Scanner sc =  new Scanner(System.in);) {
+
+			String line = sc.nextLine();
+			wr.write(line);
+			wr.newLine();
+
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+}
+
+
+package FileHandling;
+
+import java.io.*;
+import java.util.Scanner;
+
+// Append a line to an existing file.
+public class Ques07 {
+
+	public static void main(String[] args) {
+		String path = "src/FileHandling/output01.txt";
+
+		String line;
+		StringBuffer content = new StringBuffer();
+
+		try (BufferedReader br = new BufferedReader(new FileReader(path));) {
+
+			while ((line = br.readLine()) != null) {
+				content.append(line + "\n");
+			}
+
+			System.out.println(content);
+
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		try (Scanner sc = new Scanner(System.in); 
+				BufferedWriter wr = new BufferedWriter(new FileWriter(path));) {
+			content.append(sc.nextLine());
+			
+			wr.write(content.toString());
+
+
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+}
+
+
+
+package FileHandling;
+
+import java.io.*;
+import java.util.Scanner;
+
+// Store even and odd in different files.
+public class Ques08 {
+
+	public static void main(String[] args) {
+		String path1 = "src/FileHandling/output02a.txt";
+		String path2 = "src/FileHandling/output02b.txt";
+		try (BufferedWriter wr1 = new BufferedWriter(new FileWriter(path1));
+				BufferedWriter wr2 = new BufferedWriter(new FileWriter(path2));
+				Scanner sc = new Scanner(System.in);) {
+
+			int arr[] = new int[] {1,2,4,2,5,7,8,9,4,9,7,8,9,5,4,63,1,6,6,32,3,6,6,21,32,65,4,56,32};
+			for(int  i = 0; i<arr.length; i++) {
+				if(arr[i]%2 == 0) {
+					wr1.write(Integer.toString(arr[i]) + " ");
+				}else {
+					wr2.write(Integer.toString(arr[i]) + " ");
+				}
+			}
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+}
+
+
+
+package FileHandling;
+
+public class Student {
+	int rollNo;
+	String name;
+	double marks;
+
+	Student(int rollNo, String name, double marks) {
+		this.rollNo = rollNo;
+		this.name = name;
+		this.marks = marks;
+	}
+
+	public String toString() {
+		return "" + rollNo + "," + name + "," + marks + "";
+	}
+}
+
+
+package FileHandling;
+
+import java.io.*;
+import java.util.Scanner;
+
+// Add a student data to a file using BufferedWriter
+public class Ques09 {
+
+	public static void main(String[] args) {
+		String path = "src/FileHandling/output03.txt";
+		try (BufferedWriter wr = new BufferedWriter(new FileWriter(path));Scanner sc =  new Scanner(System.in);) {
+
+			wr.write(new Student(101, "Ram", 89.9).toString());
+			wr.newLine();
+			wr.write(new Student(102, "Lakshaman", 85.6).toString());
+			wr.newLine();
+			wr.write(new Student(103, "Sita", 94.5).toString());
+			wr.newLine();
+			wr.write(new Student(104, "Hanuman", 97.3).toString());
+			wr.newLine();
+
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+}
+
+
+package FileHandling;
+
+import java.io.*;
+import java.util.Scanner;
+
+// Copy data from one file and paste into another
+public class Ques10 {
+
+	public static void main(String[] args) {
+		String path1 = "src/FileHandling/input01.txt";
+		String path2 = "src/FileHandling/output04.txt";
+
+		String line;
+
+		try (BufferedReader br = new BufferedReader(new FileReader(path1));
+				BufferedWriter wr = new BufferedWriter(new FileWriter(path2));) {
+
+			while ((line = br.readLine()) != null) {
+				wr.write(line);
+				wr.newLine();
+			}
+
+
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+}
+
+
+
+
+
+

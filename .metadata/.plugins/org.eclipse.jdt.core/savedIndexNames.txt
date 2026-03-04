@@ -1,0 +1,22 @@
+INDEX VERSION 1.134+/home/king-kahtras/Learning/TrainingCapg/.metadata/.plugins/org.eclipse.jdt.core
+1615928855.index
+3317015837.index
+2998048139.index
+3530890350.index
+991344987.index
+2720000225.index
+3702428764.index
+1266437588.index
+1276217805.index
+391523969.index
+870552959.index
+4264922036.index
+2880021706.index
+4152608671.index
+1865797976.index
+272362136.index
+1014725954.index
+2775723256.index
+3575175287.index
+443850767.index
+2301803298.index

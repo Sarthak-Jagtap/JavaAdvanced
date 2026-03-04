@@ -1,0 +1,16 @@
+package com.example;
+
+import org.hibernate.Session;
+import org.hibernate.Transaction;
+
+public class EmployeeDao {
+
+	
+	public Employee getById(int id) {
+		try(Session session = HBUtil.getSessionFactory().openSession()){
+			Transaction tr = session.beginTransaction();
+			
+			Query<Employee> qry = session.createQuery("from Employee e where id=: id",Employee.class);
+		}
+	}
+}

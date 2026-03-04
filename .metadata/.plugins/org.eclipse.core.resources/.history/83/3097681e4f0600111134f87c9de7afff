@@ -1,0 +1,43 @@
+package StreamAPIQues;
+
+/**
+ * 3. Problem Statement : Find Out:
+ * 
+ * 1. Find out the newsId which has received maximum comments.
+ * 
+ * 2. Find out how many times the word 'budget' arrived in user comments all
+ * news.
+ * 
+ * 3. Find out which user has posted maximum comments.
+ * 
+ * 4. Display commentByUser wise number of comments.
+ */
+
+class News {
+    int newsId;
+    String commentByUser;
+    String comment;
+
+    public News(int newsId, String commentByUser, String comment) {
+        this.newsId = newsId;
+        this.commentByUser = commentByUser;
+        this.comment = comment;
+    }
+
+    public int getNewsId() {
+        return newsId;
+    }
+
+    public String getCommentByUser() {
+        return commentByUser;
+    }
+
+    public String getComment() {
+        return comment;
+    }
+}
+
+
+public class Ques03 {
+
+}

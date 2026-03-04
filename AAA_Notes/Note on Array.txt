@@ -1,0 +1,66 @@
+An Array is a fundamental linear data structure consisting of a collection of elements, each identified by at least one array index or key. 
+
+Core Characteristics
+Contiguous Memory: Elements are stored in adjacent memory locations, allowing the computer to calculate any element's address using a simple formula: BaseAddress + (Index * ElementSize).
+
+Homogeneous Elements: All items in an array must be of the same data type (e.g., all integers or all characters).
+
+Zero-Based Indexing: In most languages like C, Java, and Python, the first element starts at index 0 and the last at n-1 (where n is the size).
+
+Random Access: You can access any element directly in constant time, O(1), if you know its index. 
+
+Types of Arrays
+One-Dimensional (1D): A simple linear list where elements are accessed by a single index.
+
+Multi-Dimensional (2D/3D): Often represented as tables (rows and columns) or grids. A 2D array is essentially an "array of arrays".
+
+Static vs. Dynamic:
+Static: Size is fixed at compile time and cannot change (e.g., int arr[5] in C).
+Dynamic: Size can grow or shrink during runtime (e.g., ArrayList in Java or list in Python). 
+
+Standard Operations & Complexity
+Operation 	Time Complexity	Description
+Access	O(1)	Retrieve a value using its index.
+Search	O(n)	Linear search through the array to find a specific value.
+Insertion	O(n)	Adding an element requires shifting existing elements to make space.
+Deletion	O(n)	Removing an element requires shifting subsequent elements to fill the gap.
+Update	O(1)	Change the value at a specific index.
+
+Pros and Cons
+Advantages: Fast random access, cache-friendliness due to physical proximity in memory, and minimal memory overhead per element.
+
+Disadvantages: Fixed size (for static arrays) and expensive insertions/deletions due to element shifting. 
+
+Common Applications
+Building Blocks: Used to implement other data structures like Stacks, Queues, and Hash Tables.
+Matrices: Used in image processing and mathematical computations.
+Look-up Tables: Storing precomputed values for quick retrieval. 
+
+In Java, arrays are objects that store a fixed-size sequential collection of elements of the same type. Memory is allocated on the heap using the new keyword. 
+
+1. Declaration & Initialization
+You can create an array by defining its type and size or by providing literal values. 
+Static Initialization: int[] arr = {10, 20, 30};.
+Dynamic Initialization: int[] arr = new int[5]; (Values default to 0 for int, false for boolean, and null for objects). 
+
+2. Common Operations
+Because Java arrays have a fixed length, operations like insertion and deletion require manual shifting of elements. 
+
+Operation 	Code Example
+Access	int val = arr[2]; (Constant time O(1))
+Update	arr[0] = 99;
+Traversal	for (int x : arr) { System.out.println(x); } (using for-each loop)
+Length	int size = arr.length; (Note: length is a property, not a method)
+
+3. Built-in Utility: java.util.Arrays 
+Java provides a dedicated Arrays class for common tasks: 
+Sorting: Arrays.sort(arr); (Uses Dual-Pivot Quicksort).
+Searching: Arrays.binarySearch(arr, key); (Requires a sorted array).
+Filling: Arrays.fill(arr, 0); sets all elements to a specific value.
+Copying: Arrays.copyOf(arr, newLength); for resizing or duplication.
+Printing: Arrays.toString(arr); converts elements into a readable string. 
+
+4. Multi-Dimensional Arrays
+In Java, these are "arrays of arrays," allowing for "jagged" rows of different lengths. 
+Declaration: int[][] matrix = new int[3][4];.
+Initialization: int[][] grid = { {1, 2}, {3, 4} };. 

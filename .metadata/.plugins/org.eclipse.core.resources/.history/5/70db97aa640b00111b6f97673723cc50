@@ -1,0 +1,12 @@
+package EmployeeJDBC;
+
+import java.sql.Connection;
+
+public class EmployeeDAO {
+
+	public void insertEmp(Employee emp) {
+		String query = "INSERT INTO EMPLOYEE (name, dept, salary, joiningDate) VALUES (?,?,?,?)";
+		
+		try(Connection con = DBConnection.)
+	}
+}

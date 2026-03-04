@@ -1,0 +1,6 @@
+package com.util;
+
+public class DBConnnection {
+	private SQLCreds creds = new SQLCreds("productDB");
+	
+}

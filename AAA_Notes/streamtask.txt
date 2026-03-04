@@ -1,0 +1,53 @@
+Assume:
+
+List<Integer> numbers = Arrays.asList(10, 15, 20, 25, 30, 35, 40);
+
+1. Find all even numbers
+
+
+2. Find all odd numbers
+
+
+3. Multiply each number by 2
+
+
+4. Find numbers greater than 25
+
+
+5. Count total numbers
+
+
+6. Find sum of all numbers
+
+
+7. Find max and min
+
+
+8. Convert all numbers to String
+
+Assume:
+
+List<String> names = Arrays.asList("Sekhar", "Amit", "Anita", "Ravi", "Suman", "Ajay");
+
+9. Names starting with "A"
+
+
+10. Names ending with "i"
+
+
+11. Convert all names to uppercase
+
+
+12. Sort names alphabetically
+
+
+13. Sort names by length
+
+
+14. Find first name starting with "S"
+
+
+15. Check if any name starts with "R"
+
+
+16. Check if all names have length > 3

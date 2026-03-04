@@ -1,0 +1,168 @@
+package EmployeeJDBC;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+import java.sql.Date;
+
+public class EmployeeDAO {
+
+	public void insertEmp(Employee emp) {
+		String query = "INSERT INTO Employee (name, dept, salary, joiningDate) VALUES (?,?,?,?)";
+		
+		try(Connection con = new DBConnection().createDBConnection();
+			PreparedStatement ps = con.prepareStatement(query)){
+			
+			ps.setString(1, emp.getName());
+			ps.setString(2, emp.getDept());
+			ps.setDouble(3, emp.getSalary());
+			ps.setDate(4, Date.valueOf(emp.getJoiningDate()));
+			
+			int result = ps.executeUpdate();
+			System.out.println(result + "Employee record inserted");
+		}catch(SQLException s) {
+			s.printStackTrace();
+		}
+	}
+	
+	public void updateEmp(Employee emp) {
+
+		String query = "UPDATE Employee SET name=?, dept=?, salary=?, joining_dt=? WHERE emp_id=?";
+
+		try (Connection con = new DBConnection().createDBConnection();
+			 PreparedStatement ps = con.prepareStatement(query)) {
+
+			ps.setString(1, emp.getName());
+			ps.setString(2, emp.getDept());
+			ps.setDouble(3, emp.getSalary());
+			ps.setDate(4, Date.valueOf(emp.getJoiningDate()));
+			ps.setInt(5, emp.getEmpId());
+
+			int result = ps.executeUpdate();
+			System.out.println(result + "Employee record updated");
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void deleteEmp(int id) {
+
+		String query = "DELETE FROM Employee WHERE emp_id=?";
+
+		try (Connection con = new DBConnection().createDBConnection();
+			 PreparedStatement ps = con.prepareStatement(query)) {
+
+			ps.setInt(1, id);
+			int result = ps.executeUpdate();
+			System.out.println(result + "Employee record deleted");
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public List<Employee> getEmp() {
+
+		List<Employee> list = new ArrayList<>();
+		String query = "SELECT * FROM Employee";
+
+		try (Connection con = new DBConnection().createDBConnection();
+			 PreparedStatement ps = con.prepareStatement(query);
+			 ResultSet rs = ps.executeQuery()) {
+
+			while (rs.next()) {
+
+				Employee emp = new Employee(
+						rs.getInt("emp_id"),
+						rs.getString("name"),
+						rs.getString("dept"),
+						rs.getDouble("salary"),
+						rs.getDate("joining_dt").toString()  // Convert DATE → String
+				);
+
+				list.add(emp);
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		return list;
+	}
+	
+	public List<Employee> getEmpByDept(String dept) {
+
+		List<Employee> list = new ArrayList<>();
+		String query = "SELECT * FROM Employee WHERE dept=?";
+
+		try (Connection con = new DBConnection().createDBConnection();
+			 PreparedStatement ps = con.prepareStatement(query)) {
+
+			ps.setString(1, dept);
+
+			try (ResultSet rs = ps.executeQuery()) {
+
+				while (rs.next()) {
+
+					Employee emp = new Employee(
+							rs.getInt("emp_id"),
+							rs.getString("name"),
+							rs.getString("dept"),
+							rs.getDouble("salary"),
+							rs.getDate("joining_dt").toString()
+					);
+
+					list.add(emp);
+				}
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		return list;
+	}
+	
+	public double getMaxSal() {
+
+		String query = "SELECT MAX(salary) AS max_sal FROM Employee";
+
+		try (Connection con = new DBConnection().createDBConnection();
+			 PreparedStatement ps = con.prepareStatement(query);
+			 ResultSet rs = ps.executeQuery()) {
+
+			if (rs.next()) {
+				return rs.getDouble("max_sal");
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		return 0;
+	}
+	
+	public double getAvgSal() {
+
+		String query = "SELECT AVG(salary) AS avg_sal FROM Employee";
+
+		try (Connection con = new DBConnection().createDBConnection();
+			 PreparedStatement ps = con.prepareStatement(query);
+			 ResultSet rs = ps.executeQuery()) {
+
+			if (rs.next()) {
+				return rs.getDouble("avg_sal");
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		return 0;
+	}
+	
+}

@@ -1,0 +1,45 @@
+package com.example;
+
+import org.hibernate.Session;
+import org.hibernate.Transaction;
+
+import com.mysql.cj.Query;
+
+public class ProductDao {
+	public void storeProduct(Product p) {
+		try (Session session = HBUtil.getSessionFactory().openSession()) {
+			Transaction tr = session.beginTransaction();
+			session.persist(tr);
+			tr.commit();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	@SuppressWarnings("deprecation")
+	public void deleteProductbyId(int id) {
+		try (Session session = HBUtil.getSessionFactory().openSession()) {
+			Transaction tr = session.beginTransaction();
+			Product p = session.get(Product.class, id);
+			session.delete(p);
+			session.persist(tr);
+			tr.commit();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	@SuppressWarnings("deprecation")
+	public void updateProduct(Product p, int id) {
+		try(Session session = HBUtil.getSessionFactory().openSession()){
+			Transaction tr = session.beginTransaction();
+			
+		}
+	}
+
+	public void retieveAll() {
+		try(Session session = HBUtil.getSessionFactory().openSession()){
+			Query<Product> query = session.createQuery("from Product p",Product.class);
+		}
+	}
+}

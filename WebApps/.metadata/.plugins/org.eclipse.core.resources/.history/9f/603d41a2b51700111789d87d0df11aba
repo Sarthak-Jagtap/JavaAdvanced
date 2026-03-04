@@ -1,0 +1,48 @@
+package com.example;
+
+import java.util.List;
+
+import org.hibernate.Session;
+import org.hibernate.Transaction;
+import org.hibernate.query.Query;
+
+public class StudentDao {
+
+	public void insertStudent(Student stud) {
+		try (Session session = HBUtil.getSessionFactory().openSession()) {
+			Transaction tr = session.beginTransaction();
+
+			session.persist(stud);
+
+			tr.commit();
+		}
+	}
+
+	public List<Student> getTopStudents() {
+
+		try (Session session = HBUtil.getSessionFactory().openSession()) {
+
+			Query<Student> q = session.createNamedQuery("Student.topScorers", Student.class);
+
+			q.setMaxResults(3);
+
+			return q.getResultList();
+		}
+	}
+	
+	public void increaseCSMarks() {
+
+        try(Session session = HBUtil.getSessionFactory().openSession()) {
+
+            Transaction tr = session.beginTransaction();
+
+            Query q = session.createQuery(
+                "update Student s set s.marks = s.marks * 1.05 where s.branch='CS'"
+            );
+
+            q.executeUpdate();
+
+            tr.commit();
+        }
+    }
+}

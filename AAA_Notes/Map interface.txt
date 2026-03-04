@@ -1,0 +1,86 @@
+Map<Interface> - maintain key-value pairs.
+"name" = "Ramesh";
+"corrAddr"
+"permAddr"
+
+Methods of Map-
+put(Object k, Object v) - stores a key value pair
+get(Object k):Object
+remove()
+size()
+entrySet():Set - returns both key and values
+keySet() : Set - returns only key
+values(): Collection - returns only values
+containsKey(Object key):boolean
+containsValue(Object value):boolean
+
+interface Map<K, V>{
+	interface Entry{
+		K key;
+		V value;
+		public K getKey()
+		public V getValue()
+	}
+}
+
+Key Features of Map
+-- Stores data as (key, value)
+-- Keys must be unique
+-- One null key allowed (depends on implementation)
+-- Multiple null values allowed (depends on implementation)
+-- Not synchronized by default (except Hashtable)
+
+HashMap
+-- No insertion order maintained
+-- Allows one null key and multiple null values
+-- Fast performance (O(1) average)
+
+LinkedHashMap
+-- Maintains insertion order
+-- Slightly slower than HashMap
+-- Allows one null key
+
+TreeMap
+-- Stores keys in sorted order
+-- Does NOT allow null keys
+-- Based on Red-Black Tree
+
+Map.Entry is a nested (inner) interface inside the Map interface.
+-- It represents one key–value pair inside a Map.
+Set<Map.Entry<Integer, String>> entries = map.entrySet();
+
+`p.forEach((key, value) ->
+    System.out.println(key + " = " + value)
+);
+
+Hashtable is a data structure that stores unique key to values ex- <Integer, String>
+Each key/value pair is known as an Entry.
+Fast Insertion, look up, deletion of key/value pairs
+It's ideal for large data sets.
+
+Internal Data Structure of Hashtable
+-- Uses array of buckets
+-- Each bucket stores entries as linked list
+-- Entry = key, value, hash, next
+interface Entry{
+K key;
+V value;
+int hash;
+Entry next;
+}
+
+-- Uses hashing technique
+-- All public methods are synchronized
+
+hashing - takes a key and computes an integer(formula will vary based on key and data type)
+In a Hashtable, we use the [hash % capacity] to calculate an index number.
+
+	key.hashCode() % capacity = index;
+bucket - an indexed storage location for one or more Entries.
+
+Collision - linkedlist
+
+
+
+
+

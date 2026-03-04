@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Add Student</title>
+</head>
+<body>
+<h1>Add Student form</h1>
+
+<form action="addStudent" method = "post">
+
+</form>
+
+</body>
+</html>

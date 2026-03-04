@@ -1,0 +1,13 @@
+package HackerRankM1;
+
+/**
+ * Implement a student registration and information retrieval system for a
+ * school using a simple class roster in Java. The system should assign an
+ * integer ID (enrollmentNumber) to each student, starting from 1 and
+ * incrementing by 1 for every new registration. Each student’s name should be
+ * stored along with the assigned enrollment number.
+ */
+
+public class Ques01 {
+
+}

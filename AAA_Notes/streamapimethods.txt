@@ -1,0 +1,35 @@
+1. Intermediate Operations (The "Pipeline" Steps)
+These methods return a new Stream and are not executed until a terminal operation is called. 
+Method 			Purpose					Practical Example
+filter(Predicate)	Keep only elements matching a condition.	stream.filter(n -> n > 10)
+map(Function)		Transform each element into something else.	stream.map(String::toUpperCase)
+flatMap(Function)	Flatten nested collections into a single stream.	listOfLists.stream().flatMap(List::stream)
+distinct()		Remove duplicate elements.			stream.distinct()
+sorted()		Sort elements (natural or custom order).	stream.sorted(Comparator.reverseOrder())
+limit(long)		Truncate the stream to a maximum size.		stream.limit(5)
+skip(long)		Discard the first n elements.			stream.skip(2)
+peek(Consumer)		Perform an action (like logging) without modifying the stream.	stream.peek(System.out::println)
+
+2. Terminal Operations (The "Final Result")
+These trigger the processing and consume the stream. Once called, the stream cannot be reused. 
+Method 			Purpose						Result Type
+collect(Collector)	Package results into a List, Set, or Map.	List<T>, Set<T>, etc.
+forEach(Consumer)	Iterate and perform an action on each element.	void
+reduce(BinaryOp)	Combine elements into a single value (e.g., sum).	Optional<T> or T
+count()			Returns the number of elements.	long
+min / max(Comp)		Find the smallest or largest element.	Optional<T>
+findFirst / findAny	Retrieve an element from the stream.	Optional<T>
+anyMatch(Predicate)	Check if at least one element matches.	boolean
+allMatch(Predicate)	Check if all elements match.	boolean
+noneMatch(Predicate)	Check if no elements match.	boolean
+toArray()		Convert the stream to a physical array.	T[]
+
+3. The "Collectors" Power-User List
+Collectors utility class. 
+toList() / toSet(): Most common way to end a stream.
+joining(delimiter): Concatenates strings with a separator.
+groupingBy(Function): Groups elements into a Map by a key (e.g., grouping employees by department).
+partitioningBy(Predicate): Splits a stream into two groups: those that match a condition and those that don't.
+summarizingInt/Double/Long: Returns an object containing count, sum, min, average, and max all at once.
+
+

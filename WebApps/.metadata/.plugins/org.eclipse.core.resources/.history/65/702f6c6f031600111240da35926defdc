@@ -1,0 +1,20 @@
+package com.model;
+
+/*
+ * create table Product(
+	pId int primary key,
+    pName varchar(50),
+    pPrice double,
+    pQuantity int,
+    pMFGDate date
+);
+ * **/
+
+public class Product {
+	private int pId;
+	private String pName;
+	private double pPrice;
+	private int pQuantity;
+	private LocalDate pMFGDate;
+
+}

@@ -1,0 +1,95 @@
+package StreamAPIQues;
+
+import java.util.Comparator;
+import java.util.List;
+import java.util.stream.Collectors;
+
+/**
+ * 2. Problem Statement
+ * 
+ * Display the following:
+ * 
+ * 1. Display the fruit names of low calories fruits i.e. calories < 100 sorted
+ * in descending order of calories.
+ * 
+ * 2. Display color wise list of fruit names.
+ * 
+ * 3. Display only RED color fruits sorted as per their price in ascending
+ * order.
+ * 
+ */
+
+class Fruit {
+	String name;
+	int calories;
+	String color;
+	double price;
+	
+
+	public Fruit(String name, int calories, String color, double price) {
+		super();
+		this.name = name;
+		this.calories = calories;
+		this.color = color;
+		this.price = price;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public int getCalories() {
+		return calories;
+	}
+
+	public String getColor() {
+		return color;
+	}
+	
+	public double getPrice() {
+		return price;
+	}
+
+	@Override
+	public String toString() {
+		return "Fruit [name=" + name + ", calories=" + calories + ", color=" + color + "]";
+	}
+
+	
+
+	void lowCalorieFruit(List<Fruit> list) {
+		list.stream().filter(e -> e.getCalories() < 100).sorted(Comparator.comparingInt(Fruit::getCalories).reversed())
+				.forEach(e -> System.out.println(e.getName()));
+	}
+
+	void colorWise(List<Fruit> list) {
+		list.stream()
+				.collect(
+						Collectors.groupingBy(
+								Fruit::getColor, 
+								Collectors.mapping(
+										Fruit::getName, 
+										Collectors.toList()
+									)
+								)
+						)
+				.forEach((color, fruitsList) -> System.out.println(color + " = " + fruitsList));
+		
+		list.stream().collect(Collectors.groupingBy(Fruit::getColor, Collectors.mapping(Fruit::getName, Collectors.toList())));
+	}
+	
+	
+	void specificColor(List<Fruit> list, String color) {
+		list.stream()
+		.filter(e -> e.getColor().equals(color))
+		.sorted(Comparator.comparingDouble(Fruit::getPrice))
+		.collect(Collectors.toList())
+		.forEach(e -> System.out.println(e.getName()));
+	}
+	
+
+}
+
+public class Ques02 {
+
+}

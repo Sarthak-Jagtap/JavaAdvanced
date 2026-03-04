@@ -1,0 +1,19 @@
+package EmployeeJDBC;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+
+public class DBConnection {
+	private SQLCreds obj = new SQLCreds("Employee");
+	
+	public Connection createDBConnection() {
+		Connection con = null;
+		try {
+			con = DriverManager.getConnection(obj.getUrl(),obj.getUser(),obj.getPassword());
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		return con;
+		
+	}
+}

@@ -1,0 +1,20 @@
+package com.util;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+
+public class DBConnnection {
+	private SQLCreds creds = new SQLCreds("productDB");
+	
+	public Connection createDBConnection() {
+		Connection conn = null;
+		
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			conn = DriverManager.getConnection(creds.getUrl(), creds.getUrl(),creds.getPassword())
+		}
+		
+		return conn;
+	}
+	
+}

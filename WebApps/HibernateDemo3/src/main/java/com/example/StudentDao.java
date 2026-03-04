@@ -1,0 +1,81 @@
+package com.example;
+
+import java.util.List;
+
+import org.hibernate.Session;
+import org.hibernate.Transaction;
+import org.hibernate.query.Query;
+
+public class StudentDao {
+
+	public void addStudent(Student stud) {
+		try (Session session = HBUtil.getSessionFactory().openSession()) {
+			Transaction tr = session.beginTransaction();
+
+			session.persist(stud);
+
+			tr.commit();
+		}
+	}
+
+	public List<Student> getTopStudents() {
+
+		try (Session session = HBUtil.getSessionFactory().openSession()) {
+
+			Query<Student> q = session.createNamedQuery("Student.topScorers", Student.class);
+
+			q.setMaxResults(3);
+
+			return q.getResultList();
+		}
+	}
+
+	public void increaseCSMarks() {
+
+		try (Session session = HBUtil.getSessionFactory().openSession()) {
+
+			Transaction tr = session.beginTransaction();
+
+			Query q = session.createQuery("update Student s set s.marks = s.marks * 1.05 where s.branch='CS'");
+
+			q.executeUpdate();
+
+			tr.commit();
+		}
+	}
+
+	public void deleteBelowAverage() {
+
+		try (Session session = HBUtil.getSessionFactory().openSession()) {
+
+			Transaction tr = session.beginTransaction();
+
+			// Step 1: Get average marks
+			Double avgMarks = session.createQuery("select avg(s.marks) from Student s", Double.class).getSingleResult();
+
+			// Step 2: Delete students below average
+			Query q = session.createQuery("delete from Student s where s.marks < :avg");
+
+			q.setParameter("avg", avgMarks);
+
+			q.executeUpdate();
+
+			tr.commit();
+		}
+	}
+
+	public void branchWiseAverage() {
+
+		try (Session session = HBUtil.getSessionFactory().openSession()) {
+
+			Query<Object[]> q = session.createNamedQuery("Student.branchAverage", Object[].class);
+
+			List<Object[]> list = q.getResultList();
+
+			for (Object[] row : list) {
+
+				System.out.println("Branch : " + row[0] + " Avg Marks : " + row[1]);
+			}
+		}
+	}
+}

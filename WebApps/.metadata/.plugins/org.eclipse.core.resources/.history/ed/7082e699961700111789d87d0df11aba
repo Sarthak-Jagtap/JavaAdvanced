@@ -1,0 +1,38 @@
+package com.example;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import org.hibernate.SessionFactory;
+import org.hibernate.boot.MetadataSources;
+import org.hibernate.boot.registry.StandardServiceRegistry;
+import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
+
+public class HBUtil {
+	static SessionFactory sessionFactory;
+	static StandardServiceRegistry registry;
+	
+	public static SessionFactory getSessionFactory() {
+		
+		Map<String,String> map = new HashMap<String,String>();
+		map.put("connection.driver_class", "com.mysql.cj.jdbc.Driver");
+		map.put("connection.url","jdbc:mysql://localhost:3306/EmployeeDB");
+		    <property name="dialect">org.hibernate.dialect.MySQL8Dialect</property>
+		    <property name="connection.username">root</property>
+		    <property name="connection.password">#Sarthak@76342</property>
+		    <property name="connection.pool_size">3</property>
+		    <!--property name="dialect">org.hibernate.dialect.MySQLDialect</property-->
+		    <property name="current_session_context_class">thread</property>
+		    <property name="show_sql">true</property>
+		    <property name="format_sql">true</property>
+		    <property name="hbm2ddl.auto">create</property>
+		    <mapping class="com.example.Employee" />
+
+		
+		
+		registry = new StandardServiceRegistryBuilder().configure("").build();
+		sessionFactory = new MetadataSources(registry).buildMetadata().buildSessionFactory();
+		
+		return sessionFactory;
+	}
+}

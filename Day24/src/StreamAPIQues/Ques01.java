@@ -1,0 +1,73 @@
+package StreamAPIQues;
+
+import java.util.Comparator;
+import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
+
+/**
+ * 1. Problem Statement Task:
+ * 
+ * 1. Find all transactions in the year 2011 and sort them by value (small to
+ * high).
+ * 
+ * 2. Print all transactions’ values from the traders living in Delhi.
+ * 
+ * 3. What’s the highest value of all the transactions?
+ * 
+ * 4. Find the transaction with the smallest value.
+ * 
+ */
+
+class Transaction {
+	String id;
+	int year;
+	double amount;
+	String city;
+
+	public Transaction(String id, int year, double amount, String city) {
+		super();
+		this.id = id;
+		this.year = year;
+		this.amount = amount;
+		this.city = city;
+	}
+
+	public int getYear() {
+		return year;
+	}
+
+	public double getAmount() {
+		return amount;
+	}
+
+	public String getCity() {
+		return city;
+	}
+
+	@Override
+	public String toString() {
+		return "Transaction [id=" + id + ", year=" + year + ", amount=" + amount + ", city=" + city + "]";
+	}
+
+	List<Transaction> groupByYear(List<Transaction> list, int year) {
+		return list.stream().filter(e -> e.getYear() == year).sorted(Comparator.comparingDouble(Transaction::getAmount))
+				.collect(Collectors.toList());
+	}
+
+	List<Transaction> filterWithCity(List<Transaction> list, String city) {
+		return list.stream().filter(e -> e.getCity().equals(city)).collect(Collectors.toList());
+	}
+
+	Optional<Transaction> getHighestTransction(List<Transaction> list) {
+		return list.stream().max(Comparator.comparingDouble(Transaction::getAmount));
+	}
+
+	Optional<Transaction> getLowestTransction(List<Transaction> list) {
+		return list.stream().min(Comparator.comparingDouble(Transaction::getAmount));
+	}
+}
+
+public class Ques01 {
+
+}

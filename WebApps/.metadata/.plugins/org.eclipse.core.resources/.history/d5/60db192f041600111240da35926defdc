@@ -1,0 +1,30 @@
+package com.model;
+
+import java.time.LocalDate;
+
+/*
+ * create table Product(
+	pId int primary key,
+    pName varchar(50),
+    pPrice double,
+    pQuantity int,
+    pMFGDate date
+);
+ * **/
+
+public class Product {
+	private int pId;
+	private String pName;
+	private double pPrice;
+	private int pQuantity;
+	private LocalDate pMFGDate;
+
+	
+	public Product(int pId, String pName, double pPrice, int pQuantity, LocalDate pMFGDate) {
+		this.pId = pId;
+		this.pName = pName;
+		this.pPrice = pPrice;
+		this.pQuantity = pQuantity;
+		this.pMFGDate = pMFGDate;
+	}
+}

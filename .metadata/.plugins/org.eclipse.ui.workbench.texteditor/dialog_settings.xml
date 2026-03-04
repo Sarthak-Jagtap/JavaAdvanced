@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="java.lang.Class">
+		<item key="replaceBarOpen" value="false"/>
+		<list key="replacehistory">
+			<item value="linkedList"/>
+		</list>
+		<list key="findhistory">
+			<item value="dateof"/>
+			<item value="stud_id"/>
+			<item value="toString"/>
+			<item value="out"/>
+			<item value="println"/>
+			<item value="PrintStream"/>
+			<item value="System"/>
+			<item value="split"/>
+			<item value="ObjectOutputStream"/>
+			<item value="vector"/>
+		</list>
+	</section>
+</section>

@@ -1,0 +1,53 @@
+package EmployeeJDBC;
+
+import java.util.List;
+
+public class Main {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		EmployeeDAO dao = new EmployeeDAO();
+
+		// 1️⃣ INSERT EMPLOYEES
+		Employee e1 = new Employee(0, "Sarthak", "AI", 60000, "2024-01-15");
+		Employee e2 = new Employee(0, "Rohit", "HR", 45000, "2023-06-10");
+		Employee e3 = new Employee(0, "Anjali", "AI", 75000, "2022-09-05");
+
+		dao.insertEmp(e1);
+		dao.insertEmp(e2);
+		dao.insertEmp(e3);
+
+		// 2️⃣ UPDATE EMPLOYEE (Assuming emp_id = 1 exists)
+		Employee updatedEmp = new Employee(1, "Sarthak Jagtap", "AI", 80000, "2024-01-15");
+		dao.updateEmp(updatedEmp);
+
+		// 3️⃣ GET ALL EMPLOYEES
+		System.out.println("\n---- All Employees ----");
+		List<Employee> allEmp = dao.getEmp();
+		for (Employee emp : allEmp) {
+			System.out.println(emp);
+		}
+
+		// 4️⃣ GET EMPLOYEES BY DEPARTMENT
+		System.out.println("\n---- AI Department Employees ----");
+		List<Employee> aiEmp = dao.getEmpByDept("AI");
+		for (Employee emp : aiEmp) {
+			System.out.println(emp);
+		}
+
+		// 5️⃣ GET MAX SALARY
+		double maxSal = dao.getMaxSal();
+		System.out.println("\nMax Salary: " + maxSal);
+
+		// 6️⃣ GET AVERAGE SALARY
+		double avgSal = dao.getAvgSal();
+		System.out.println("Average Salary: " + avgSal);
+
+		// 7️⃣ DELETE EMPLOYEE (Assuming emp_id = 2 exists)
+		dao.deleteEmp(2);
+
+		System.out.println("\nExecution Completed Successfully!");
+	}
+
+}

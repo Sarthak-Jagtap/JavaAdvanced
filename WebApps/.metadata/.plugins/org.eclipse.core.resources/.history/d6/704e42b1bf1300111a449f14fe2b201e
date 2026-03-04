@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Add Student</title>
+</head>
+<body>
+	<h1>Add Student form</h1>
+
+	<form action="addStudent" method="post">
+	
+	Name: <input type= "text" name = "name" required><br><br>
+	Age: <input type= "number" name = "age" required><br><br>
+	Email: <input type= "email" name = "email" required><br><br>
+	
+	<input type = "submit" value = "Add Student">
+	
+	</form>
+
+</body>
+</html>

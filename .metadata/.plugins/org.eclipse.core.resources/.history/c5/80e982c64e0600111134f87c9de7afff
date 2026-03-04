@@ -1,0 +1,18 @@
+package StreamAPIQues;
+
+/**
+ * 3. Problem Statement : Find Out:
+ * 
+ * 1. Find out the newsId which has received maximum comments.
+ * 
+ * 2. Find out how many times the word 'budget' arrived in user comments all
+ * news.
+ * 
+ * 3. Find out which user has posted maximum comments.
+ * 
+ * 4. Display commentByUser wise number of comments.
+ */
+
+public class Ques03 {
+
+}

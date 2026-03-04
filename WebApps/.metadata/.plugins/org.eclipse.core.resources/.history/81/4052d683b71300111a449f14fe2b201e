@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+Home Page
+<br>
+
+<a href = "XML Demo">First Page</a>
+<p>This shows the demo of XML. Learn't that mapping for each page should be done one. 
+<br> that is either we map in web.xml file or use @WebServlet.
+<br> Reading the parameters from the init param
+
+<br>
+<br>
+<a href = "SecondPage">Second Page</a>
+</body>
+</html>	

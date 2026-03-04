@@ -1,0 +1,9 @@
+package com.example;
+
+public class Product {
+
+	int pId;
+	String pName;
+	float pPrice;
+	LocalDate pMFGDate;
+}

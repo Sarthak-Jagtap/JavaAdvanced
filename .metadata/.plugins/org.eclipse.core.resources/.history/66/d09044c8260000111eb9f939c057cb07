@@ -1,0 +1,15 @@
+package CapgM1;
+
+/**
+ * 3. Java 8 Stream Filtering on Custom Objects Scenario: Given a List<Product>,
+ * use Streams to filter products with a price > 500, sort them by name, and
+ * collect them into a new list. 
+ * 
+ * • Key Concept: Using stream(), .filter(), .sorted(),
+ * and .collect(Collectors.toList()). Capgemini heavily tests Lambda
+ * expressions in M1.
+ */
+
+public class StreamFiltering {
+
+}

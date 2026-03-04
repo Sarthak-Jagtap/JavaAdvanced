@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+Home Page
+<br>
+
+<a href = "FirstPage">First Page</a>
+<p>This shows the demo of XML. Learnt that mapping for each page should be done one. 
+<br> that is either we map in web.xml file or use @WebServlet.
+</body>
+</html>	

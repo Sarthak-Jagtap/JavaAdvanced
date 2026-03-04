@@ -1,0 +1,31 @@
+package com.dao;
+
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
+
+import com.model.Product;
+
+public class ProductDao {
+	PreparedStatement ps = null;
+	ResultSet rs = null;
+	
+	List<Product> getProducts(int offSet, int limit){
+		List<Product> list = new ArrayList<>();
+		
+		String query = "select * from Product";
+
+		
+		return list;
+	}
+	
+	List<Product> getProductsAll(){
+		List<Product> list = new ArrayList<>();
+		
+		
+
+		
+		return list;
+	}
+}

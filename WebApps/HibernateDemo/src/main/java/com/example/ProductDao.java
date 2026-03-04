@@ -1,0 +1,48 @@
+package com.example;
+
+import java.util.List;
+
+import org.hibernate.Session;
+import org.hibernate.Transaction;
+import org.hibernate.query.Query;
+
+public class ProductDao {
+	public void storeProduct(Product p) {
+		try (Session session = HBUtil.getSessionFactory().openSession()) {
+			Transaction tr = session.beginTransaction();
+			session.persist(p);
+			tr.commit();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	@SuppressWarnings("deprecation")
+	public void deleteProductbyId(int id) {
+		try (Session session = HBUtil.getSessionFactory().openSession()) {
+			Transaction tr = session.beginTransaction();
+			Product p = session.get(Product.class, id);
+			session.delete(p);
+			session.persist(tr);
+			tr.commit();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+//	public void updateProduct(Product p, int id) {
+//		try (Session session = HBUtil.getSessionFactory().openSession()) {
+//			Transaction tr = session.beginTransaction();
+//
+//		}
+//	}
+
+	public void retieveAll() {
+		try (Session session = HBUtil.getSessionFactory().openSession()) {
+			Query<Product> query = session.createQuery("from Product p", Product.class);
+			List<Product> prods = query.getResultList();
+
+			prods.forEach(p -> System.out.println(p));
+		}
+	}
+}

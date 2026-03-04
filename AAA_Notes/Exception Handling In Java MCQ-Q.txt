@@ -1,0 +1,299 @@
+Exception Handling In Java MCQ
+Q#1. Which of the following is incorrect about try-with-resources in Java?
+
+(a) try-with-resources was introduced in Java 7
+(b) We don't need to use finally block, if we use try-with-resources
+(c) The try-with-resources statement ensures that each resource is closed at the end of the statement 
+*(d) It increases the complexity of the code
+Q#2. Which of the following scenarios is best suited for utilizing the try-with-resources statement?
+
+(a) Handling common runtime exceptions
+(b) Implementing custom exception classes
+*(c) Working with IO operations involving streams
+(d) Synchronizing multi-threaded operations
+Q#3. What is the output of the following code snippet?
+
+try {
+      throw new RuntimeException("Error");
+} catch (Exception e) {
+      System.out.println(e.getMessage());
+}
+*(a) Error
+(b) RuntimeException
+(c) null
+(d) The code will not compile.
+Q#4. Which of the following statement(s) is/are correct about multi-catch statement?
+
+*(a) A single catch block can handle more than one type of exception.
+(b) A multi-catch statement is valid in Java 7 and later.
+(c) If a catch block handles more than one exception type, then the catch parameter is implicitly final.
+(d) Alternatives in a multi-catch statement cannot be related by subclassing.
+Q#5. Which of the following is the correct syntax for catching multiple exceptions in a single catch block?
+
+(a) catch (ExceptionType1 || ExceptionType2 || ExceptionType3 ex) 
+(b) catch (ExceptionType1, ExceptionType2, ExceptionType3 ex)
+(c) catch (ExceptionType1 && ExceptionType2 && ExceptionType3 ex)
+*(d) catch (ExceptionType1 | ExceptionType2 | ExceptionType3 ex)
+Q#6. What is wrong with the following code snippet in the context of try-with-resources?
+
+static String readFirstLineFromFile() throws IOException {
+
+    try (FileReader fr = new FileReader("");
+         BufferedReader br = new BufferedReader(fr)) {
+        fr= new FileReader("xyz.txt");
+        return br.readLine();
+    }
+}
+(a) There is no catch block after the try block. 
+*(b) The re-assignment of variable 'fr' is not allowed.
+(c) Two resources can't be declared in a try block.
+(d) The throws clause is not needed.
+
+Q#7. Which of the following statements is true about exceptions in the context of Java 7 and later versions?
+
+*(a) A try block must be followed by either a catch block or a finally block.
+(b) In order to close the resources opened in try block, it is mandatory to include a finally block. 
+*(c) Multiple types of exceptions can be handled by including multiple catch blocks.
+(d) It is not mandatory to include a catch block or finally block after a try block.
+Q#8. Which exception will be thrown by parseInt() method in Java?
+
+(a) IntegerOutOfBoundException
+(b) IntegerFormatException
+(c) ArithmeticException
+*(d) NumberFormatException
+Q#9. Which of the following exception must be either caught or declared to be thrown in Java?
+
+(a) NullPointerException
+(b) ArrayIndexOutOfBoundsException
+*(c) FileNotFoundException 
+(d) ArithmeticException
+Q#10. What is the output of the following code snippet?
+
+try {
+    throw new NullPointerException();
+} catch (RuntimeException e) {
+    System.out.println("RuntimeException");
+} catch (Exception e) {
+    System.out.println("Exception");
+}
+*(a) RuntimeException
+(b) Exception
+(c) NullPointerException
+(d) The code will not compile.
+Q#11. Which of the following is true about the catch block in Java?
+
+(a) A catch block can catch multiple types of exceptions using the semicolon (;).
+(b) A catch block can catch multiple types of exceptions using the logical AND operator (&).
+*(c) A catch block can catch multiple types of exceptions using multiple catch statements.
+(d) A catch block can only catch one type of exception at a time.
+Q#12. Which statement is used to catch and handle multiple exceptions in a single catch block?
+
+(a) catch-all
+(b) multi-catch
+(c) exception-catch
+(d) exception-all
+Q#13. Which keyword will you use to specify that a method can potentially throw an exception?
+
+(a) try
+(b) catch
+(c) throw
+*(d) throws
+Q#14. What is the purpose of the finally block in exception handling?
+
+(a) To catch and handle exceptions.
+(b) To specify that a method can potentially throw an exception.
+*(c) To execute code regardless of whether an exception is thrown or not.
+(d) To explicitly throw an exception.
+Q#15. Which of the following statements is true about the catch block in exception handling?
+
+*(a) A try block can have multiple catch blocks.
+(b) A catch block can have multiple try blocks.
+(c) A catch block must always be followed by a finally block.
+*(d) A catch block cannot be used without a try block.
+Q#16. Which of the following statements is true about the finally block in exception handling?
+
+(a) A finally block is always executed before a catch block.
+(b) A finally block is always executed after a catch block.
+(c) A finally block is only executed if an exception occurs.
+*(d) A finally block is optional and can be omitted.
+Q#17. Which of the following is a subclass of the Exception class?
+
+*(a) RuntimeException
+(b) Error
+(c) Throwable
+(d) StackOverflowError
+Q#18. Which of the following statements is true about the finally block?
+
+(a) The finally block is required for every try-catch statement.
+*(b) The finally block is optional and can be omitted.
+(c) The finally block is executed only if an exception occurs.
+(d) The finally block is executed only if a catch block is present.
+Q#19. What is the output of the following code snippet?
+
+try {
+    int[] array = new int[5];
+    System.out.println(array[5]);
+} catch (ArrayIndexOutOfBoundsException e) {
+    System.out.println("ArrayIndexOutOfBoundsException");
+} finally {
+    System.out.println("Finally block executed.");
+}
+*(a) ArrayIndexOutOfBoundsException
+     Finally block executed.
+(b) ArrayIndexOutOfBoundsException
+(c) Finally block executed.
+(d) The code will not compile.
+Q#20. Which of the following is not a subclass of Throwable in Java?
+
+(a) Checked exception
+(b) Unchecked exception
+*(c) Fatal exception
+(d) Error
+Q#21. Which of the following is/are correct statement(s) about Unchecked Exceptions in Java?
+
+*(a) These exceptions occur during the execution of the program.
+*(b) They are also referred to as Runtime exceptions. 
+(c) These exceptions are generally ignored during the compilation process.
+(d) They are checked while compiling the program.
+Q#22. Which of the following is an incorrect statement about checked Exceptions in Java?
+
+(a) Checked exceptions are called compile-time exceptions.
+*(b) They are subtypes of RuntimeException. 
+(c) These exceptions are checked at compile-time by the compiler.
+*(d) The IOException is a type of checked Exception.
+
+Q#23. In which of the below classes the printStackTrace() method defined?
+
+*(a) Exception.
+(b) RuntimeException.
+(c) Throwable.
+(d) Error.
+Q#24. Which of the following is a not a subclass of the Error class directly or indirectly?
+
+*(a) RuntimeException
+(b) InternalError
+(c) StackOverflowError
+(d) OutOfMemoryError
+Q#25. What is the output of the following code snippet?
+
+try {
+    throw new Exception("Custom exception");
+} catch (Exception e) {
+    System.out.println(e.getMessage());
+}
+*(a) Custom exception
+(b) Exception
+(c) null
+(d) The code will not compile.
+Q#26. Which of the following statements is true about custom exception classes in Java?
+
+(a) Custom exception classes must extend  the Throwable class.
+(b) Custom exception classes must extend  the RuntimeException class.
+*(c) Custom exception classes must extend the Exception class.
+(d) Custom exception classes are not required to extend or implement any class or interface.
+Q#27. Which of the following is not a type of valid construct in exception handling?
+
+(a) try-catch-finally
+(b) try-finally
+*(c) catch-finally
+(d) try-catch
+Q#28. Which of the following is not a checked exception in Java?
+
+(a) IOException
+(b) FileNotFoundException
+*(c) NullPointerException
+(d) ClassNotFoundException
+Q#29. What is the output of the following code snippet?
+
+try {
+    throw new Error("Fatal error");
+} catch (Exception e) {
+    System.out.println("Exception");
+} catch (Error e) {
+    System.out.println("Error");
+}
+(a) Exception
+(b) Error
+*(c) Compiler error
+(d) The code will not compile.
+Q#30. Which of the following exceptions is not a subclass of the RuntimeException class?
+
+(a) NullPointerException
+(b) ArrayIndexOutOfBoundsException
+*(c) IOException
+(d) ArithmeticException
+Q#31. Which of the following statements is true about the try-with-resources statement in Java?
+
+(a) It is used to handle multiple exceptions in a single catch block.
+(b) It is used to specify that a method can potentially throw an exception.
+*(c) It is used to automatically close resources after usage.
+(d) It is used to define custom exception classes.
+Q#32. Which of the following statements is true about handling exceptions in multi-threaded Java applications?
+
+(a) Each thread should handle exceptions independently.
+*(b) Exceptions thrown by a thread cannot be caught by other threads.
+(c) A separate exception handler should be defined for each thread.
+(d) Exceptions in multi-threaded applications are handled automatically by the JVM.
+Q#33. What is the output of the following code snippet?
+
+try {
+    throw new Exception("First Exception");
+} catch (Exception e) {
+    try {
+        throw new Exception("Second Exception");
+    } catch (Exception ex) {
+        System.out.println(ex.getMessage());
+   }
+}
+(a) First Exception
+*(b) Second Exception
+(c) First Exception followed by Second Exception
+(d) Second Exception followed by First Exception
+Q#34. What is the output of the following code snippet?
+
+try {
+    throw new Error();
+} catch (Throwable t) {
+    System.out.println(t.getClass().getSimpleName());
+}
+(a) Error
+(b) Throwable
+(c) Exception
+*(d) The code will not compile.
+
+Q#35. Which of the following is the correct syntax for using the try-with-resources statement?
+
+(a) try [Resource r =new Resource()] { // code }
+(b) try (Resource r = new Resource(); // code )
+(c) try { Resource r = new Resource(); // code }
+*(d) try (Resource r = new Resource()) // code
+Q#36. Which of the following interfaces must be implemented by a resource in order to be used with the try-with-resources statement?
+
+(a) Closeable
+*(b) AutoCloseable
+(c) Resource
+(d) Disposable
+Q#37. Which method of AutoCloseable interface is called internally in the try-with-resources statement?
+
+(a) clean()
+(b) refresh()
+*(c) close()
+(d) release()
+Q#38. Which of the following statements is true regarding the order of closing resources in a try-with-resources statement?
+
+(a) Resources are closed in the order of declaration within the try block.
+*(b) Resources are closed in the reverse order of declaration within the try block.
+(c) Resources are closed randomly.
+(d) The order of closing resources does not matter.
+Q#39. What happens if an exception is thrown both during resource initialization and within the try block of a try-with-resources statement?
+
+(a) The exception thrown during resource initialization takes precedence.
+(b) The exception thrown within the try block takes precedence.
+(c) Both exceptions are caught and handled.
+(d) Only the exception thrown within the try block is caught and handled.
+Q#40. What is the advantage of using the try-with-resources statement instead of a traditional try-catch-finally approach?
+
+*(a) It reduces boilerplate code.
+*(b) It ensures proper resource cleanup without explicitly writing a finally block.
+*(c) It simplifies complex exception handling.
+*(d) It improves the performance of exception handling significantly.

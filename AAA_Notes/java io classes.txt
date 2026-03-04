@@ -1,0 +1,90 @@
+1. Byte Stream Classes (8-bit data)
+ InputStream (abstract)
+
+Base class for reading byte data from a source.
+
+ OutputStream (abstract)
+
+Base class for writing byte data to a destination.
+
+Common InputStream Classes
+Class	Definition
+FileInputStream	Reads bytes from a file
+ByteArrayInputStream	Reads bytes from a byte array
+BufferedInputStream	Improves performance by buffering input
+DataInputStream	Reads primitive data types in binary form
+ObjectInputStream	Reads serialized Java objects
+PipedInputStream	Reads data written by a PipedOutputStream
+SequenceInputStream	Reads from multiple input streams sequentially
+
+Common OutputStream Classes
+Class	Definition
+FileOutputStream	Writes bytes to a file
+ByteArrayOutputStream	Writes bytes to a byte array
+BufferedOutputStream	Improves performance using buffering
+DataOutputStream	Writes primitive data types
+ObjectOutputStream	Writes serialized Java objects
+PipedOutputStream	Writes data to a PipedInputStream
+PrintStream	Prints formatted byte output (used by System.out)
+2. Character Stream Classes (16-bit Unicode)
+ Reader (abstract)
+
+Base class for reading character data.
+
+ Writer (abstract)
+
+Base class for writing character data.
+
+Common Reader Classes
+Class	Definition
+FileReader	Reads characters from a file
+BufferedReader	Reads text efficiently line-by-line
+InputStreamReader	Converts byte stream to character stream
+CharArrayReader	Reads from a character array
+StringReader	Reads from a String
+PipedReader	Reads characters from a PipedWriter
+
+Common Writer Classes
+Class	Definition
+FileWriter	Writes characters to a file
+BufferedWriter	Buffers characters for efficiency
+OutputStreamWriter	Converts character stream to byte stream
+CharArrayWriter	Writes to a character array
+StringWriter	Writes to a String
+PipedWriter	Writes characters to a PipedReader
+PrintWriter	Writes formatted character output
+
+3. File Handling Classes
+Class	Definition
+File	Represents a file or directory path
+FileDescriptor	Represents an OS-level file descriptor
+FilePermission	Defines access permissions to files
+
+4. Object Serialization
+Class / Interface	Definition
+Serializable	Marker interface to enable serialization
+Externalizable	Allows custom serialization logic
+ObjectInput	Interface for object input
+ObjectOutput	Interface for object output
+
+5. Data Stream Interfaces
+Interface	Definition
+DataInput	Reads primitive Java data types
+DataOutput	Writes primitive Java data types
+
+6. Stream Utilities & Exceptions
+Class	Definition
+IOException	Base exception for I/O errors
+EOFException	End of file reached
+FileNotFoundException	File not found
+NotSerializableException	Object not serializable
+StreamCorruptedException	Stream corrupted during serialization
+InterruptedIOException	I/O operation interrupted
+UTFDataFormatException	Invalid UTF format
+
+7. Console & System Streams
+Class	Definition
+Console	Reads password & text securely from console
+System.in	Standard input stream
+System.out	Standard output stream
+System.err	Standard error stream

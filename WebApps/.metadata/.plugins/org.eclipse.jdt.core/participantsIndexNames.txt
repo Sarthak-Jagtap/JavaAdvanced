@@ -1,0 +1,9 @@
+INDEX VERSION 1.134
+/home/king-kahtras/Learning/TrainingCapg/WebApps/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/1043224255.index
+/JSPTagsDemo/src/main/java
+/home/king-kahtras/Learning/TrainingCapg/WebApps/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/873891445.index
+/JSPTagsDemo/src/main/java
+/home/king-kahtras/Learning/TrainingCapg/WebApps/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/824431239.index
+/StudentFormPage/src/main/java
+/home/king-kahtras/Learning/TrainingCapg/WebApps/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/1060784059.index
+/JSPTagsDemo/src/main/java

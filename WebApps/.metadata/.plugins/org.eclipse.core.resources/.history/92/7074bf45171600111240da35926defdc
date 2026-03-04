@@ -1,0 +1,21 @@
+package com.example;
+
+import java.time.LocalDate;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+
+@Entity
+@Table(name = "productdetails")
+public class Product {
+
+	@Id
+	int pId;
+	String pName;
+	float pPrice;
+	LocalDate pMFGDate;
+	
+	
+}

@@ -1,0 +1,12 @@
+package com.example;
+
+import java.time.LocalDate;
+
+public class Main {
+	public static void main(String[] args) {
+
+		Product p1 = new Product("tv",32000,LocalDate.now());
+		Product p2 = new Product("fridge",32000,LocalDate.now());
+		
+	}
+}

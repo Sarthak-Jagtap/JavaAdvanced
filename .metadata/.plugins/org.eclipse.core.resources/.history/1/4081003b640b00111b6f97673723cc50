@@ -1,0 +1,8 @@
+package EmployeeJDBC;
+
+public class EmployeeDAO {
+
+	public void insertEmp(Employee emp) {
+		String query = "INSERT INTO EMPLOYEE (name, dept, salary, joiningDate)";
+	}
+}

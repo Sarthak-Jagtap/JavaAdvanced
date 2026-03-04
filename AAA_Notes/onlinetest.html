@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sorting Algorithms MCQ Test</title>
+    <style>
+        body { font-family: Arial; margin: 20px; }
+        .question { margin-bottom: 15px; }
+        button { padding: 10px 20px; font-size: 16px; }
+    </style>
+</head>
+<body>
+
+<h2>Online Test: DYP, Pune </h2>
+
+<form id="quiz">
+
+<!-- Q1 -->
+<div class="question">
+<p>1. Maximum number of swaps in Selection Sort for n elements?</p>
+<input type="radio" name="q1" value="A"> n<br>
+<input type="radio" name="q1" value="B"> n - 1<br>
+<input type="radio" name="q1" value="C"> n(n-1)/2<br>
+<input type="radio" name="q1" value="D"> Depends on input<br>
+</div>
+
+<!-- Q2 -->
+<div class="question">
+<p>2. Which statement about Selection Sort is TRUE?</p>
+<input type="radio" name="q2" value="A"> Stable by default<br>
+<input type="radio" name="q2" value="B"> Input dependent time complexity<br>
+<input type="radio" name="q2" value="C"> Performs fewer swaps than Bubble Sort<br>
+<input type="radio" name="q2" value="D"> Adaptive<br>
+</div>
+
+<!-- Q3 -->
+<div class="question">
+<p>3. Selection Sort is preferred when:</p>
+<input type="radio" name="q3" value="A"> Array is almost sorted<br>
+<input type="radio" name="q3" value="B"> Swapping cost is high<br>
+<input type="radio" name="q3" value="C"> Stability needed<br>
+<input type="radio" name="q3" value="D"> Large dataset<br>
+</div>
+
+<!-- Q4 -->
+<div class="question">
+<p>4. Comparisons in Selection Sort for {5,4,3,2,1}?</p>
+<input type="radio" name="q4" value="A"> 5<br>
+<input type="radio" name="q4" value="B"> 10<br>
+<input type="radio" name="q4" value="C"> 9<br>
+<input type="radio" name="q4" value="D"> 7<br>
+</div>
+
+<!-- Q5 -->
+<div class="question">
+<p>5. Selection Sort is not stable because:</p>
+<input type="radio" name="q5" value="A"> Nested loops<br>
+<input type="radio" name="q5" value="B"> Non-adjacent swaps<br>
+<input type="radio" name="q5" value="C"> Extra memory<br>
+<input type="radio" name="q5" value="D"> Comparisons change order<br>
+</div>
+
+<!-- Q6 -->
+<div class="question">
+<p>6. Best case time complexity of optimized Bubble Sort?</p>
+<input type="radio" name="q6" value="A"> O(n²)<br>
+<input type="radio" name="q6" value="B"> O(log n)<br>
+<input type="radio" name="q6" value="C"> O(n)<br>
+<input type="radio" name="q6" value="D"> O(1)<br>
+</div>
+
+<!-- Q7 -->
+<div class="question">
+<p>7. Bubble Sort becomes adaptive when:</p>
+<input type="radio" name="q7" value="A"> Input small<br>
+<input type="radio" name="q7" value="B"> Swap counter used<br>
+<input type="radio" name="q7" value="C"> Early termination added<br>
+<input type="radio" name="q7" value="D"> Recursion used<br>
+</div>
+
+<!-- Q8 -->
+<div class="question">
+<p>8. Passes required to sort {1,2,3,4,5} using optimized Bubble Sort?</p>
+<input type="radio" name="q8" value="A"> 0<br>
+<input type="radio" name="q8" value="B"> 1<br>
+<input type="radio" name="q8" value="C"> 4<br>
+<input type="radio" name="q8" value="D"> 5<br>
+</div>
+
+<!-- Q9 -->
+<div class="question">
+<p>9. Which is TRUE about Bubble Sort?</p>
+<input type="radio" name="q9" value="A"> Minimizes comparisons<br>
+<input type="radio" name="q9" value="B"> Minimizes swaps<br>
+<input type="radio" name="q9" value="C"> Stable<br>
+<input type="radio" name="q9" value="D"> Integer only<br>
+</div>
+
+<!-- Q10 -->
+<div class="question">
+<p>10. If inner loop always runs n-1 times in Bubble Sort?</p>
+<input type="radio" name="q10" value="A"> Incorrect result<br>
+<input type="radio" name="q10" value="B"> More swaps<br>
+<input type="radio" name="q10" value="C"> Correct but extra comparisons<br>
+<input type="radio" name="q10" value="D"> Fails<br>
+</div>
+
+<button type="button" onclick="check()">Submit Test</button>
+
+</form>
+
+<p id="result"></p>
+
+<script>
+function check() {
+    const answers = {
+        q1:"B", q2:"C", q3:"B", q4:"B", q5:"B",
+        q6:"C", q7:"C", q8:"B", q9:"C", q10:"C"
+    };
+    let score = 0;
+    for (let q in answers) {
+        const user = document.querySelector(`input[name="${q}"]:checked`);
+        if (user && user.value === answers[q]) score++;
+    }
+    document.getElementById("result").innerHTML =
+        "Your Score: " + score + " / 10";
+}
+</script>
+
+</body>
+</html>

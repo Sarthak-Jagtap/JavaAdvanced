@@ -1,0 +1,18 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Error</title>
+</head>
+<body>
+
+	<h2 style="color: red;">Error occurred while Adding Student</h2>
+
+	<p>Please enter valid details.</p>
+
+	<a href="addStudent.jsp">Try Again</a>
+
+</body>
+</html>

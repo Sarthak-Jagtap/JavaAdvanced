@@ -1,0 +1,27 @@
+package com.example;
+
+import com.example.Product;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
+
+public class ProductDao {
+	public void storeProduct(Product p) {
+		try(Session session = HBUtil.getSessionFactory().openSession()){
+			Transaction tr = session.beginTransaction();
+			session.persist(tr);
+			tr.commit();
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void deleteProductbyId(int id) {
+		try(Session session = HBUtil.getSessionFactory().openSession()){
+			session.get(Product, id);
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	
+}
