@@ -2,6 +2,7 @@
 <section name="Workbench">
 	<section name="MavenProjectWizardLocationPage">
 		<list key="location">
+			<item value="/home/king-kahtras/Learning/TrainingCapg/WebApps/AssiciationOtoM"/>
 			<item value="/home/king-kahtras/Learning/TrainingCapg/WebApps/AssociationOneToOne/src/main/java/com/example/HBUtil.java"/>
 			<item value="/home/king-kahtras/Learning/TrainingCapg/WebApps/CriteriaAPIDemo1"/>
 			<item value="/home/king-kahtras/Learning/TrainingCapg/WebApps/ProductPagination"/>
@@ -54,6 +55,7 @@
 		<list key="name">
 		</list>
 		<list key="artifactId">
+			<item value="AssociationOtoO"/>
 			<item value="AssiciationOtoM"/>
 			<item value="AssociationOneToOne"/>
 			<item value="CriteriaAPIDemo1"/>
