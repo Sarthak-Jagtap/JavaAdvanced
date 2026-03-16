@@ -5,8 +5,8 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
     http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
-	<bean id="engine" class="com.example.Engine"></bean>
-	<bean id="car" class="com.example.Car">
+	<bean id="engine" class="com.example.Engine" init-method="init" destroy-method="destroy"></bean>
+	<bean id="car" class="com.example.Car" init-method="init" destroy-method="destroy">
 
 		<constructor-arg ref="engine" name="engine">
 		</constructor-arg>
