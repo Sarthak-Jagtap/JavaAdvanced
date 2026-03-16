@@ -1,6 +1,0 @@
-package com.example.util;
-
-public class DBConnection {
-	
-	private SQLCreds obj = new SQLCreds("student_db");
-}

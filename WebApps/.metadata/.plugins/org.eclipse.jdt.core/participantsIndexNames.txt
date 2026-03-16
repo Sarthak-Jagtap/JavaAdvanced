@@ -1,6 +1,10 @@
 INDEX VERSION 1.134
+/home/king-kahtras/Learning/TrainingCapg/WebApps/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/2755024568.index
+/LoginSignupProject/src/main/java
 /home/king-kahtras/Learning/TrainingCapg/WebApps/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/1043224255.index
 /JSPTagsDemo/src/main/java
+/home/king-kahtras/Learning/TrainingCapg/WebApps/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/3065446244.index
+/LoginSignupProject/src/main/java
 /home/king-kahtras/Learning/TrainingCapg/WebApps/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/873891445.index
 /JSPTagsDemo/src/main/java
 /home/king-kahtras/Learning/TrainingCapg/WebApps/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/824431239.index
