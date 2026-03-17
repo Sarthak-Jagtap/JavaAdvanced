@@ -1,7 +1,0 @@
-package com.example;
-
-import org.hibernate.SessionFactory;
-
-public class HBUtil {
-	static SessionFactory sessionFactory;
-}

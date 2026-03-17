@@ -2,6 +2,9 @@
 <section name="Workbench">
 	<section name="MavenProjectWizardLocationPage">
 		<list key="location">
+			<item value="/home/king-kahtras/Learning/TrainingCapg/WebApps/SpringMVCDemo1"/>
+			<item value="/home/king-kahtras/Learning/TrainingCapg/WebApps/StudentMgmtSysUsingSpringCore"/>
+			<item value="/home/king-kahtras/Learning/TrainingCapg/WebApps/SpringCoreDemo1"/>
 			<item value="/home/king-kahtras/Learning/TrainingCapg/WebApps"/>
 			<item value="/home/king-kahtras/Learning/TrainingCapg/WebApps/HBInheritance3TablePerClass"/>
 			<item value="/home/king-kahtras/Learning/TrainingCapg/WebApps/AssiciationOtoM"/>
@@ -52,13 +55,11 @@
 	<section name="MavenProjectWizardArtifactPage">
 		<list key="groupId">
 			<item value="com.example"/>
-			<item value="com.examle"/>
 		</list>
 		<list key="name">
 		</list>
 		<list key="artifactId">
-			<item value="SpringCoreDemo1"/>
-			<item value="LoginSignupProject"/>
+			<item value="SpringMVCDemo2"/>
 		</list>
 		<list key="projectNameTemplate">
 			<item value="[artifactId]"/>
