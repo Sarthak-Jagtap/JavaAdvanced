@@ -8,11 +8,7 @@
 </head>
 <body>
 
-Login Page
-Hi ${name}
-
-<a href = "form">Click here to Fill Form</a>
-
+${messages}
 
 </body>
 </html>

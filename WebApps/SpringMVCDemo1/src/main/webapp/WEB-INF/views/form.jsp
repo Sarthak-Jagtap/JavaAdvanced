@@ -7,12 +7,13 @@
 <title>Insert title here</title>
 </head>
 <body>
+<h2>Form Example</h2>
 
-Login Page
-Hi ${name}
+<form action = "submit" method = "post">
 
-<a href = "form">Click here to Fill Form</a>
+Name<input type = "text" name = "name">
+<input type = "submit" name = "submit">
 
-
+</form>
 </body>
 </html>
