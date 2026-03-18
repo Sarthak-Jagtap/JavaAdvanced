@@ -11,6 +11,20 @@ public class Student {
 	private String mobile;
 	private double cgpa;
 
+	public Student(int id, String name, String email, LocalDate dob, String mobile, double cgpa) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.email = email;
+		this.dob = dob;
+		this.mobile = mobile;
+		this.cgpa = cgpa;
+	}
+
+	public Student() {
+		// TODO Auto-generated constructor stub
+	}
+
 	public int getId() {
 		return id;
 	}

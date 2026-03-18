@@ -18,5 +18,10 @@
 	<br> Mobile Number = ${studData.mobile}
 	<br> CGPA = ${studData.cgpa}
 	<br>
+	
+	<br>
+		
+	<a href="home">Go to Home</a>
+	
 </body>
 </html>
