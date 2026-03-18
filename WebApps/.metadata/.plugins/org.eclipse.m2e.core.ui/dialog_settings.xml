@@ -59,6 +59,7 @@
 		<list key="name">
 		</list>
 		<list key="artifactId">
+			<item value="SpringMVCRegiFrom"/>
 			<item value="SpringMVCDemo2"/>
 		</list>
 		<list key="projectNameTemplate">
