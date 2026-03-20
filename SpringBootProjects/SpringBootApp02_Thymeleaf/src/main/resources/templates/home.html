@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+
+<html xmlns="https://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title> HomePage</title>
+</head>
+
+
+<body>
+
+	<p th:text="${message}">Sample message</p>
+	<input th:value="${name}" th:type = "text">
+	<br> 
+	
+	<p th:text="${name}"></p>
+	
+	<br>
+	<a th:href="@{/}">Go Home</a>
+
+	<ul>
+		<li th:each="item : ${itemList}" th:text="${item}"></li>
+	</ul>
+
+	<p th:if="${age > 18}">Adult</p>
+
+	<p th:unless="${age > 18}"> Minor </p>
+
+</body>
+
+</html>
