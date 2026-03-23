@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>Auth</title>
+	<style>
+		body {
+			font-family: Arial;
+			text-align: center;
+		}
+
+		.container {
+			width: 300px;
+			margin: auto;
+		}
+
+		.hidden {
+			display: none;
+		}
+
+		input,
+		button {
+			margin: 5px;
+			padding: 8px;
+			width: 100%;
+		}
+
+		.link {
+			color: blue;
+			cursor: pointer;
+		}
+	</style>
+</head>
+
+<body>
+
+	<div class="container">
+
+		<!-- LOGIN -->
+		<div id="loginForm">
+			<h2>Login</h2>
+			<form th:action="@{/auth/login}" method="post">
+				<input type="email" name="email" placeholder="Email" required />
+				<input type="password" name="password" placeholder="Password" required />
+				<button type="submit">Login</button>
+			</form>
+			<p class="link" onclick="showSignup()">Don't have account? Signup</p>
+		</div>
+
+		<!-- SIGNUP -->
+		<div id="signupForm" class="hidden">
+			<h2>Signup</h2>
+			<form th:action="@{/auth/register}" method="post">
+				<input type="text" name="name" placeholder="Name" required />
+				<input type="email" name="email" placeholder="Email" required />
+				<input type="password" name="password" placeholder="Password" required />
+				<select name="role" required>
+					<option value="">Select Role</option>
+					<option value="CUSTOMER">Customer</option>
+					<option value="ADMIN">Admin</option>
+				</select> <button type="submit">Signup</button>
+			</form>
+			<p class="link" onclick="showLogin()">Already have account? Login</p>
+		</div>
+
+	</div>
+
+	<script>
+		function showSignup() {
+			document.getElementById("loginForm").classList.add("hidden");
+			document.getElementById("signupForm").classList.remove("hidden");
+		}
+
+		function showLogin() {
+			document.getElementById("signupForm").classList.add("hidden");
+			document.getElementById("loginForm").classList.remove("hidden");
+		}
+	</script>
+
+</body>
+
+</html>
