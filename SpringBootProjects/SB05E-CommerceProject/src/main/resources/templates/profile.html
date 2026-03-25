@@ -1,0 +1,10 @@
+<form th:action="@{/users/update}" method="post">
+    
+    <input type="hidden" name="id" th:value="${user.id}" />
+
+    <input type="text" name="name" th:value="${user.name}" />
+    <input type="email" name="email" th:value="${user.email}" readonly />
+    <input type="password" name="password" th:value="${user.password}" />
+
+    <button type="submit">Update</button>
+</form>
