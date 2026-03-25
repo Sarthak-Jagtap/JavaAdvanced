@@ -1,0 +1,58 @@
+<!-- Admin Side Home Page -->
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>Product List</title>
+</head>
+
+<body>
+
+	<h2>All Products</h2>
+
+	<!-- Add Product Button -->
+	<a href="/admin/products/add">
+		<button>Add Product</button>
+	</a>
+
+	<br><br>
+
+	<table border="1">
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>Name</th>
+				<th>Price</th>
+				<th>Quantity</th>
+				<th>Category</th>
+				<th>Actions</th>
+			</tr>
+		</thead>
+
+		<tbody>
+			<tr th:each="product : ${products}">
+				<td th:text="${product.id}"></td>
+				<td th:text="${product.name}"></td>
+				<td th:text="${product.price}"></td>
+				<td th:text="${product.quantity}"></td>
+				<td th:text="${product.category.name}"></td>
+
+				<td>
+					<!-- View -->
+					<a th:href="@{'/admin/products/' + ${product.id}}">
+						<button>View</button>
+					</a>
+
+					<!-- Delete -->
+					<a th:href="@{'/admin/products/delete/' + ${product.id}}">
+						<button>Delete</button>
+					</a>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+
+</body>
+
+</html>

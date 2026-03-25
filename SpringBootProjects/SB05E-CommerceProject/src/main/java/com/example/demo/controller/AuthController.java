@@ -6,8 +6,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-
-import com.example.demo.Service.UserService;
+import com.example.demo.service.UserService;
 import com.example.demo.enums.Role;
 import com.example.demo.model.User;
 
@@ -28,9 +27,9 @@ public class AuthController {
 		}
 
 		if (user.getRole().equals(Role.ADMIN)) {
-			return "admin";
+		    return "redirect:/admin/products";
 		} else {
-			return "customer";
+		    return "redirect:/customer/products";
 		}
 	}
 
