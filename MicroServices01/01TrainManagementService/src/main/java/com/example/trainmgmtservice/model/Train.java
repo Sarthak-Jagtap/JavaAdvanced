@@ -37,6 +37,7 @@ public class Train {
 	private Route route;
 
 	@OneToMany(mappedBy = "train", cascade = CascadeType.ALL)
+	@JsonIgnore
 	private List<Schedule> schedules;
 
 	public int getId() {

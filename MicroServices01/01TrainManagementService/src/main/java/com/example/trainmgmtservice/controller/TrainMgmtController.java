@@ -10,8 +10,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
+import com.example.trainmgmtservice.dto.RouteStationResponseDTO;
+import com.example.trainmgmtservice.dto.ScheduleResponseDTO;
 import com.example.trainmgmtservice.dto.TrainRequestDTO;
+import com.example.trainmgmtservice.dto.TrainResponseDTO;
 import com.example.trainmgmtservice.model.RouteStation;
 import com.example.trainmgmtservice.model.Schedule;
 import com.example.trainmgmtservice.model.Train;
@@ -30,8 +32,16 @@ public class TrainMgmtController {
 	}
 	
 	@GetMapping
-	public List<Train> getAllTrains(){
-		return trainService.getAllTrains();
+	public List<TrainResponseDTO> getAllTrains(){
+		return trainService.getAllTrains()
+				.stream()
+				.map(train -> {
+					TrainResponseDTO dto = new TrainResponseDTO();
+					dto.setId(train.getId());
+		            dto.setTrainNumber(train.getTrainNumber());
+		            dto.setTrainName(train.getTrainName());
+		            return dto;
+				}).toList();
 	}
 	
 	@GetMapping("/{id}")
@@ -41,16 +51,25 @@ public class TrainMgmtController {
 	
 	@DeleteMapping("/{id}")
 	public String deleteTrain(@PathVariable int id) {
+	    trainService.deleteTrain(id);
 		return "Train Deleted Successfully";
 	}	
 	
 	@GetMapping("/{id}/route")
-	public List<RouteStation> getRoute(@PathVariable int id){
-		return trainService.getRouteByTrainId(id);
+	public List<RouteStationResponseDTO> getRoute(@PathVariable int id){
+		List<RouteStation> route = trainService.getRouteByTrainId(id);
+		
+		return route.stream()
+				.map(RouteStationResponseDTO::new)
+				.toList();
 	}
 	
 	@GetMapping("/{id}/schedule")
-    public List<Schedule> getSchedule(@PathVariable int id) {
-        return trainService.getScheduleByTrainId(id);
+    public List<ScheduleResponseDTO> getSchedule(@PathVariable int id) {
+        List<Schedule> schedule =  trainService.getScheduleByTrainId(id);
+        
+        return schedule.stream()
+        		.map(ScheduleResponseDTO::new)
+        		.toList();
     }
 }
