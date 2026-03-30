@@ -1,4 +1,4 @@
-package com.example.seatservice.Service;
+package com.example.seatservice.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -24,5 +24,15 @@ public class SeatService {
         repo.save(seat);
 
         return true;
+	}
+	
+	public synchronized void releaseSeats(Integer trainId, String date, int count) {
+		SeatAvailability seat = repo
+				.findByTrainIdAndTravelDate(trainId, date)
+				.orElseThrow(() -> new RuntimeException("No Data Found"));
+		
+		seat.setAvailableSeats(seat.getAvailableSeats() + count);
+		
+		repo.save(seat);
 	}
 }

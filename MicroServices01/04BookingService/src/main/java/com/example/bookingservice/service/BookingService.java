@@ -32,10 +32,23 @@ public class BookingService {
 			throw new RuntimeException("Seats not Available");
 		}
 		
-		booking.setPnr(generatePNR());
-		booking.setStatus("BOOKED");
+		try {
+			booking.setPnr(generatePNR());
+			booking.setStatus("BOOKED");
 
-		return repo.save(booking);
+			return repo.save(booking);
+			
+		} catch(Exception e) {
+			
+			seatClient.releaseSeats(
+					booking.getTrainId(), 
+					booking.getTravelDate(), 
+					booking.getSeatCount()
+			);
+			
+			throw new RuntimeException("Booking failed, seats rolled back");
+			
+		}
 	}
 
 	public Booking getByPnr(String pnr) {

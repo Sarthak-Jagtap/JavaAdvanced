@@ -2,6 +2,7 @@ package com.example.bookingservice.feign;
 
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @FeignClient(name = "seat-service")
@@ -11,5 +12,13 @@ public interface SeatClient {
 	String reserveSeat(
 			@RequestParam Integer trainId,
 			@RequestParam String date,
-			@RequestParam Integer count);
+			@RequestParam Integer count
+	);
+	
+	@PutMapping("/seats/release")
+	String releaseSeats(
+	        @RequestParam Integer trainId,
+	        @RequestParam String date,
+	        @RequestParam int count
+	);
 }
