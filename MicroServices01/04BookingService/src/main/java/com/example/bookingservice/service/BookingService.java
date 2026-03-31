@@ -4,6 +4,8 @@ import java.util.Random;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import com.example.bookingservice.dto.SeatRequest;
 import com.example.bookingservice.feign.SeatClient;
 import com.example.bookingservice.model.Booking;
 import com.example.bookingservice.repository.BookingRepository;
@@ -13,7 +15,7 @@ public class BookingService {
 
 	@Autowired
 	private BookingRepository repo;
-	
+
 	@Autowired
 	private SeatClient seatClient;
 
@@ -22,32 +24,30 @@ public class BookingService {
 	}
 
 	public Booking bookTicket(Booking booking) {
-				
-		String response = seatClient.reserveSeat(
-				booking.getTrainId(), 
-				booking.getTravelDate(), 
-				booking.getSeatCount());
-		
-		if(response == null || !response.contains("Seats booked")) {
+
+		SeatRequest request = new SeatRequest();
+		request.setTrainId(booking.getTrainId());
+		request.setTravelDate(booking.getTravelDate());
+		request.setCount(booking.getSeatCount());
+
+		String response = seatClient.reserveSeat(request);
+
+		if (response == null || !response.contains("Seats booked")) {
 			throw new RuntimeException("Seats not Available");
 		}
-		
+
 		try {
 			booking.setPnr(generatePNR());
 			booking.setStatus("BOOKED");
 
 			return repo.save(booking);
-			
-		} catch(Exception e) {
-			
-			seatClient.releaseSeats(
-					booking.getTrainId(), 
-					booking.getTravelDate(), 
-					booking.getSeatCount()
-			);
-			
+
+		} catch (Exception e) {
+
+			seatClient.releaseSeats(request);
+
 			throw new RuntimeException("Booking failed, seats rolled back");
-			
+
 		}
 	}
 
@@ -66,5 +66,5 @@ public class BookingService {
 	private String generatePNR() {
 		return "TR" + System.currentTimeMillis() + new Random().nextInt(1000);
 	}
-	
+
 }

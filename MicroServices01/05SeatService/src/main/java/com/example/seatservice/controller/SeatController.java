@@ -3,10 +3,11 @@ package com.example.seatservice.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.seatservice.dto.SeatRequest;
 import com.example.seatservice.service.SeatService;
 
 @RestController
@@ -17,26 +18,30 @@ public class SeatController {
 	private SeatService seatService;
 
 	@PostMapping("/reserve")
-	public String serve(
-			@RequestParam Integer trainId, 
-			@RequestParam String date, 
-			@RequestParam Integer count) {
-		boolean success = seatService.reserveSeat(trainId, date, count);
+	public String reserveSeat(@RequestBody SeatRequest request) {
 
-		if (success) {
-			return "Seat Booked";
-		} else {
-			return "No Enough Seats";
-		}
+	    boolean success = seatService.reserveSeat(
+	        request.getTrainId(),
+	        request.getTravelDate(),
+	        request.getCount()
+	    );
+
+	    if (success) {
+	        return "Seats booked";
+	    } else {
+	        return "Not enough seats";
+	    }
 	}
 	
 	@PutMapping("/release")
-	public String releaseSeats(@RequestParam Integer trainId,
-	                           @RequestParam String date,
-	                           @RequestParam int count) {
+	public String releaseSeats(@RequestBody SeatRequest request) {
 
-		seatService.releaseSeats(trainId, date, count);
+	    seatService.releaseSeats(
+	        request.getTrainId(),
+	        request.getTravelDate(),
+	        request.getCount()
+	    );
+
 	    return "Seats released";
 	}
-
 }

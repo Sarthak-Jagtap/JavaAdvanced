@@ -12,7 +12,7 @@ public class SeatAvailability {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 
-	private Long trainId;
+	private Integer trainId;
 
 	private String travelDate;
 
@@ -26,11 +26,11 @@ public class SeatAvailability {
 		this.id = id;
 	}
 
-	public Long getTrainId() {
+	public Integer getTrainId() {
 		return trainId;
 	}
 
-	public void setTrainId(Long trainId) {
+	public void setTrainId(Integer trainId) {
 		this.trainId = trainId;
 	}
 
