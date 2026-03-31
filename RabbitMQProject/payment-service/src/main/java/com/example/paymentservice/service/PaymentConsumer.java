@@ -2,7 +2,6 @@ package com.example.paymentservice.service;
 
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.stereotype.Service;
-
 import com.example.model.Order;
 import com.example.paymentservice.config.RabbitConfig;
 
